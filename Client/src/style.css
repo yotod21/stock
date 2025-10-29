@@ -1,0 +1,370 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.login--form{
+    width: 400px;
+    margin: 140px auto;
+    border-radius: 10px ;
+    box-shadow: 1px 1px 1px 1px gray;
+    padding: 10px;
+ }
+ 
+.sidebar{
+    font-family: monospace;
+    height: 100vh;
+}
+.closemenu{
+    text-align: right;
+    padding-right: 2px;
+    font-size: 25px;
+}
+hr{
+    border: 1px solid rgb(39, 36, 36);
+}
+.ForAllFlex{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+}
+.toogle:hover{
+    background: rgb(100, 99, 99);
+}
+.dashboard{
+    margin:10px;
+}
+.dashboard h2{
+    font-family: sans-serif;
+    color: rgb(158, 158, 158);
+}
+.catalogues{
+    display: flex;
+    flex-wrap: wrap;
+}
+.catalogue{
+    width: 230px;
+    height: 90px;
+    margin: 10px 30px 10px  80px ;
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 3px 2px 5px 2px gray;
+    border-radius: 9px;
+    cursor: pointer;
+}
+.catalogue:hover{
+    box-shadow: 3px 3px 10px 3px gray;
+}
+.catalogue-icon{
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    font-size: 300%;
+    border-radius: 10px;
+}
+.Icon{
+    margin:0px;
+}
+.catalogue-name{
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+.catalogue-amount{
+    width: 120px;
+    font-size: 25px;
+    color: gray;
+    font-weight: bolder;
+    font-family: sans-serif;
+    text-align: center;
+}
+.product, .orders, .reports, .addadmin, .profile{
+    width: 1030px;
+    height: 100vh;
+    margin-left:20px;
+}
+.product-bar, .order-bar, .reportbar, .addadmin-bar, .profilebar{
+    width: 100%;
+    height: 40px;
+    margin: 5px 0px 5px 5px;
+    padding-top: 5px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    border-radius: 10px;
+    background-color: rgb(241, 238, 238);
+}
+.addproduct{
+    margin-left: 80%;
+}
+.addproduct button{
+    margin: 10px;
+}
+.searchproduct, .orderdate{
+    display: flex;
+    align-items: baseline;
+    width: 500px;
+}
+
+.product-tabel{
+    margin: 10px 20px ;
+}
+.product-tabel tr th,td{
+    width: 400px;
+    padding: 0px 20px;
+    text-align: center;
+    border: 1px solid gainsboro;
+    border-collapse: collapse;
+}
+.orderform{
+    padding: 20px;
+}
+.orderdate{
+    padding: 20px;
+}
+
+.orderproductinfo{
+    padding: 10px 10px 0px 10px;
+}
+.orderproductinfo ul{
+    list-style: none;
+    display: flex;
+    width: 1000px;
+    padding: 20px 0px;
+    background-color: antiquewhite;
+}
+.orderproductinfo ul li{
+    width: 250px;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-left: 60px;
+}
+
+.fillproduct{
+    width: 100px;
+}
+.fillproduct ul{
+    list-style: none;
+    display: flex;
+    width: 1000px;
+}
+.fillproduct ul li{
+    width: 240px;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.addsubbutton{
+    margin: 10px;
+}
+
+table{
+    border: 1px solid gainsboro;
+    border-collapse: collapse; 
+}
+
+/* Simple Product Page Styles */
+.product {
+    background: #f8f9fa;
+    margin: 20px;
+}
+
+/* Report Page Styles */
+.reports {
+    background: #f8f9fa;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.reportbar {
+    background: #007bff;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.reportbar h5 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.reports form {
+    padding: 20px;
+    background: white;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.reports .startdate {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.reports .startdate label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 14px;
+}
+
+.reports .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.reports .form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.reports .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.reports .btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.reports .btn-success:hover {
+    background: #218838;
+}
+
+.reports .btn-info {
+    background: #17a2b8;
+    color: white;
+}
+
+.reports .btn-info:hover {
+    background: #138496;
+}
+
+.reports .btn-warning {
+    background: #ffc107;
+    color: #212529;
+}
+
+.reports .btn-warning:hover {
+    background: #e0a800;
+}
+
+.reports .btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.reports .btn-secondary:hover {
+    background: #5a6268;
+}
+
+.reports h6 {
+    color: #495057;
+    font-weight: 600;
+    margin: 15px 0 10px 0;
+    padding: 8px 15px;
+    background: #e9ecef;
+    border-left: 4px solid #007bff;
+    font-size: 16px;
+}
+
+/* Enhanced Table Styles for Better Data Visibility */
+.reports .product-tabel {
+    margin: 0;
+    background: white;
+    border-radius: 0;
+    overflow-x: auto;
+}
+
+.reports .product-tabel table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.reports .product-tabel th {
+    background: #f8f9fa;
+    color: #495057;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid #dee2e6;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.reports .product-tabel td {
+    padding: 10px 8px;
+    border: 1px solid #dee2e6;
+    font-size: 13px;
+    vertical-align: top;
+}
+
+.reports .product-tabel tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.reports .product-tabel tr:hover {
+    background: #e3f2fd;
+}
+
+/* Empty state styling */
+.reports .product-tabel tr td[colspan] {
+    text-align: center;
+    padding: 30px;
+    color: #6c757d;
+    font-style: italic;
+    background: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .reports form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .reports .startdate {
+        width: 100%;
+    }
+    
+    .reports .form-control {
+        width: 100%;
+    }
+    
+    .reports .product-tabel {
+        overflow-x: scroll;
+    }
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 15px 20px;
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
