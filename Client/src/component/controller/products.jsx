@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import SideBar from '../SideBarLayOut';
 import { FaPlus } from 'react-icons/fa';
 import {Modal, Button} from "react-bootstrap";
@@ -21,7 +21,6 @@ export default function Products(props){
     <div className='w-full p-6'>
         <div className="flex items-center justify-between mb-4">
             <h5 className="text-2xl font-semibold text-gray-800">Manage Product</h5>
-                {show}
         </div>
         <div className="mb-4">
                  <Button variant="primary" onClick={handleShow} className="!bg-indigo-600 !border-none hover:!bg-indigo-700">
@@ -34,10 +33,10 @@ export default function Products(props){
                     </Modal.Header>
                     <form onSubmit={props.handelSubmit}>
                     <Modal.Body>
-                        {props.successMessage === true ?
+                        {props.successMessage ? (
                                         <div className="alert alert-success">
                                             <h5>Stock Upload Successfully</h5>
-                                        </div>:""}
+                                        </div>) : ""}
 
                         
                         <div className="productname">

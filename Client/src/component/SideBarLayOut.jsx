@@ -17,11 +17,9 @@ export default function SideBar(){
             setMenuCollapse(prev=>!prev)
         }
 
-            const viewHeight = window.outerHeight;
-
     return (
              <div className="sidebar">
-                <ProSidebar collapsed={menuCollapse} style={{height:viewHeight}}>
+                <ProSidebar collapsed={menuCollapse} style={{height:window.outerHeight}}>
                 <SidebarHeader>
                     <div style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                         <div className="logoText" style={{fontSize:"20px"}}>

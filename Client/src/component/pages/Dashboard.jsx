@@ -65,7 +65,7 @@ export default function Home(){
             <h2>Welcome To Stock Management System</h2>
             <div className="catalogues">
                 {dashboard.map(c=>(
-                    <Link to= {`${c.link}`} style={{textDecoration:"none", color:"black"}} >
+                    <Link key={c.id} to= {`${c.link}`} style={{textDecoration:"none", color:"black"}} >
                     <div className='catalogue'>
                         <div className="catalogue-icon" style={{backgroundColor:`${c.color}`}}>
                             <div className='Icon'>{c.icon}</div>

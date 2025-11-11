@@ -13,12 +13,9 @@ export default function Product(){
     name:'',
     catagory:'',
     quantity:'',
-    vatORtot:'',
-    measurment:'',
     price:'',
     expire:'',
 })
-console.log(addproduct)
 const [successMessage, setSuccessMessage]=useState("")
 
 const [productlist, setProductlist]=useState([])
@@ -77,7 +74,7 @@ function handelDelete(productid){
 
 //handelSubmit
 function handelSubmit(event){
-    event.PreventDefault()
+    event.preventDefault()
 }
 
 //MODAL CONTROLLE FOR EDIT PRODUCT

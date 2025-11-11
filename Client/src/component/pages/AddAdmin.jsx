@@ -43,10 +43,6 @@ export default function AddAdmin(){
                 })
         }
 
-        Axios.get('http://localhost:3002/admindata').then((response)=>{
-            setAdminData(response.data)
-        })
-
     function handelAdminData(event){
         setAdmin(prev=>{
             return{
@@ -56,8 +52,6 @@ export default function AddAdmin(){
         })
 
     }
-    console.log(admin)
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -149,8 +143,8 @@ export default function AddAdmin(){
                                     <th>Email</th>
                                     <th>Action</th>
                                 </tr>
-                                {admindata.map((data, key)=>(
-                                    <tr>
+                                {admindata.map((data)=>(
+                                    <tr key={data.id}>
                                         <td>{data.id}</td>
                                         <td>{data.username}</td>
                                         <td>{data.email}</td>

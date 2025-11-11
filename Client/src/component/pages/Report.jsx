@@ -68,12 +68,6 @@ export default function Report(){
             setTransfers(transfersRes.data || [])
             setLow(lowRes.data || [])
             setIsLoading(false)
-            console.log('Report data loaded:', {
-                products: productsRes.data?.length || 0,
-                sales: salesRes.data?.length || 0,
-                transfers: transfersRes.data?.length || 0,
-                low: lowRes.data?.length || 0
-            })
         }).catch(error => {
             console.error('Error fetching report data:', error)
             setIsLoading(false)
@@ -82,19 +76,8 @@ export default function Report(){
     }
 
     function downloadPdf(){
-        console.log('Download button clicked!')
-        console.log('Current state:', {
-                products: products.length,
-                sales: sales.length,
-                transfers: transfers.length,
-                low: low.length,
-                isLoading: isLoading
-            })
-        
         try {
-            console.log('Creating PDF document...')
             const doc = new jsPDF('p', 'mm', 'a4')
-            console.log('PDF document created successfully')
             
             // Header
             doc.setFontSize(18)
@@ -287,11 +270,7 @@ export default function Report(){
 
             // Save the PDF
             const fileName = `stock-report-${new Date().toISOString().split('T')[0]}.pdf`
-            console.log('Saving PDF with filename:', fileName)
             doc.save(fileName)
-            
-            // Show success message
-            console.log('PDF saved successfully!')
             alert('PDF downloaded successfully!')
             
         } catch (error) {
