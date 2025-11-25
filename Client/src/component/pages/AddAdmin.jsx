@@ -4,6 +4,7 @@ import { BsFillCheckSquareFill } from 'react-icons/bs';
 import {Modal, Button} from "react-bootstrap"
 import SideBar from '../SideBarLayOut';
 import Axios from 'axios';
+import { demoAdmins, USE_DEMO_DATA } from '../../data/demoData';
 
 
 
@@ -23,9 +24,13 @@ export default function AddAdmin(){
     const [editAdmin, setEditAdmin] = useState({ id:"", username:"", password:"", email:"" })
 
     useEffect(()=>{
-        Axios.get('http://localhost:3002/admindata').then((response)=>{
-            setAdminData(response.data)
-        })
+        if (USE_DEMO_DATA) {
+            setAdminData(demoAdmins);
+        } else {
+            Axios.get('http://localhost:3002/admindata').then((response)=>{
+                setAdminData(response.data)
+            }).catch(()=> setAdminData(demoAdmins))
+        }
     }, [])
 
     const addAdmin = ()=> {

@@ -9,7 +9,7 @@ export default function Home(){
         {
             id:1,
             name:"Products",
-            number:5,
+            number:8,
             icon:<FaProductHunt/>,
             color:"blue",
             link:"/product"
@@ -31,7 +31,7 @@ export default function Home(){
         {
             id:4,
             name:"Add Subadmin",
-            number:2,
+            number:3,
             icon:<FaPlus/>,
             color:"skyblue",
             link:"/addsubadmin"
@@ -39,7 +39,7 @@ export default function Home(){
         {
             id:5,
             name:"Stores",
-            number:1,
+            number:3,
             icon:<FaStore/>,
             color:"green",
             link:"/stores"
@@ -47,7 +47,7 @@ export default function Home(){
         {
             id:6,
             name:"Low product",
-            number:0,
+            number:2,
             icon:<FaMinus/>,
             color:"Red",
             link:"/lowproduct"

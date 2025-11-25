@@ -4,6 +4,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
 import SideBar from '../SideBarLayOut';
+import { demoProducts, demoSales, demoTransfers, demoLowProducts, USE_DEMO_DATA } from '../../data/demoData';
 
 
 export default function Report(){
@@ -26,21 +27,33 @@ export default function Report(){
 
     function loadAllData() {
         setIsLoading(true)
-        Promise.all([
-            Axios.get('http://localhost:3002/report/products'),
-            Axios.get('http://localhost:3002/report/sales'),
-            Axios.get('http://localhost:3002/report/transfers'),
-            Axios.get('http://localhost:3002/lowproduct')
-        ]).then(([productsRes, salesRes, transfersRes, lowRes]) => {
-            setProducts(productsRes.data)
-            setSales(salesRes.data)
-            setTransfers(transfersRes.data)
-            setLow(lowRes.data)
+        if (USE_DEMO_DATA) {
+            setProducts(demoProducts)
+            setSales(demoSales)
+            setTransfers(demoTransfers)
+            setLow(demoLowProducts)
             setIsLoading(false)
-        }).catch(error => {
-            console.error('Error fetching initial data:', error)
-            setIsLoading(false)
-        })
+        } else {
+            Promise.all([
+                Axios.get('http://localhost:3002/report/products'),
+                Axios.get('http://localhost:3002/report/sales'),
+                Axios.get('http://localhost:3002/report/transfers'),
+                Axios.get('http://localhost:3002/lowproduct')
+            ]).then(([productsRes, salesRes, transfersRes, lowRes]) => {
+                setProducts(productsRes.data)
+                setSales(salesRes.data)
+                setTransfers(transfersRes.data)
+                setLow(lowRes.data)
+                setIsLoading(false)
+            }).catch(error => {
+                console.error('Error fetching initial data:', error)
+                setProducts(demoProducts)
+                setSales(demoSales)
+                setTransfers(demoTransfers)
+                setLow(demoLowProducts)
+                setIsLoading(false)
+            })
+        }
     }
 
 

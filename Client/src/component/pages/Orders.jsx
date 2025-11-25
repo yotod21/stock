@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from '../SideBarLayOut';
 import Axios from 'axios';
+import { demoProducts, demoStores, USE_DEMO_DATA } from '../../data/demoData';
 
 export default function Orders(){
 
@@ -13,8 +14,13 @@ export default function Orders(){
     const [message, setMessage] = useState("")
 
     useEffect(()=>{
-        Axios.get('http://localhost:3002/productdata').then(({data})=> setProducts(data))
-        Axios.get('http://localhost:3002/stores').then(({data})=> setStores(data))
+        if (USE_DEMO_DATA) {
+            setProducts(demoProducts);
+            setStores(demoStores);
+        } else {
+            Axios.get('http://localhost:3002/productdata').then(({data})=> setProducts(data)).catch(()=> setProducts(demoProducts))
+            Axios.get('http://localhost:3002/stores').then(({data})=> setStores(data)).catch(()=> setStores(demoStores))
+        }
     }, [])
 
     function onSellChange(e){

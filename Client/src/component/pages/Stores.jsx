@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import SideBar from '../SideBarLayOut';
 import Axios from 'axios';
+import { demoStores, USE_DEMO_DATA } from '../../data/demoData';
 
 export default function Stores(){
 
@@ -9,7 +10,11 @@ export default function Stores(){
     const [editing, setEditing] = useState(null)
 
     useEffect(()=>{
-        Axios.get('http://localhost:3002/stores').then(({data})=> setStores(data))
+        if (USE_DEMO_DATA) {
+            setStores(demoStores);
+        } else {
+            Axios.get('http://localhost:3002/stores').then(({data})=> setStores(data)).catch(()=> setStores(demoStores))
+        }
     }, [])
 
     function onChange(e){

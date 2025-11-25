@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Products from '../controller/products';
 import Axios from 'axios'
 import {Modal, Button} from "react-bootstrap";
+import { demoProducts, demoStores, USE_DEMO_DATA } from '../../data/demoData';
 
 
 
@@ -23,15 +24,28 @@ const [stores, setStores] = useState([])
 const [filterStore, setFilterStore] = useState("")
 // Load products and stores
 React.useEffect(()=>{
-    Axios.get('http://localhost:3002/stores').then(({data})=> setStores(data))
-    Axios.get('http://localhost:3002/productdata').then((response)=>{
-        setProductlist(response.data)
-    })
+    if (USE_DEMO_DATA) {
+        setStores(demoStores);
+        setProductlist(demoProducts);
+    } else {
+        Axios.get('http://localhost:3002/stores').then(({data})=> setStores(data)).catch(()=> setStores(demoStores))
+        Axios.get('http://localhost:3002/productdata').then((response)=>{
+            setProductlist(response.data)
+        }).catch(()=> setProductlist(demoProducts))
+    }
 }, [])
 // Filter by store
 React.useEffect(()=>{
-    const url = filterStore ? `http://localhost:3002/productdata?store_id=${filterStore}` : 'http://localhost:3002/productdata'
-    Axios.get(url).then((response)=> setProductlist(response.data))
+    if (USE_DEMO_DATA) {
+        const filtered = filterStore ? demoProducts.filter(p => p.store_id === filterStore) : demoProducts;
+        setProductlist(filtered);
+    } else {
+        const url = filterStore ? `http://localhost:3002/productdata?store_id=${filterStore}` : 'http://localhost:3002/productdata'
+        Axios.get(url).then((response)=> setProductlist(response.data)).catch(()=> {
+            const filtered = filterStore ? demoProducts.filter(p => p.store_id === filterStore) : demoProducts;
+            setProductlist(filtered);
+        })
+    }
 }, [filterStore])
  //handler which add product to the database
  const handelAddProduct = ()=>{

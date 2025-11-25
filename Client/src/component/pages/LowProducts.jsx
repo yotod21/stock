@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from '../SideBarLayOut';
 import Axios from 'axios';
+import { demoProducts, demoLowProducts, USE_DEMO_DATA } from '../../data/demoData';
 
 export default function LowProducts(){
 
@@ -8,8 +9,13 @@ export default function LowProducts(){
     const [allProducts, setAllProducts] = useState([])
 
     useEffect(()=>{
-        Axios.get('http://localhost:3002/lowproduct').then(({data})=> setLow(data))
-        Axios.get('http://localhost:3002/productdata').then(({data})=> setAllProducts(data))
+        if (USE_DEMO_DATA) {
+            setLow(demoLowProducts);
+            setAllProducts(demoProducts);
+        } else {
+            Axios.get('http://localhost:3002/lowproduct').then(({data})=> setLow(data)).catch(()=> setLow(demoLowProducts))
+            Axios.get('http://localhost:3002/productdata').then(({data})=> setAllProducts(data)).catch(()=> setAllProducts(demoProducts))
+        }
     }, [])
 
     // Filter expired products
